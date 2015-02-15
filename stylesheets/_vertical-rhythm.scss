@@ -1,0 +1,53 @@
+$base-font-size: 16px !default;
+$base-line-height: 24px !default;
+
+$default-border-width: 1px !default;
+$default-border-style: solid !default;
+$default-border-color: black !default;
+
+$min-line-padding: 2px !default;
+
+$rhythm-unit: rem;
+
+@function convert-px-to-rem($px) {
+  @return $px / $base-font-size + $rhythm-unit;
+}
+
+@function line-height($font-size) {
+  $line-height: ceil(($font-size + $min-line-padding * 2) / $base-line-height) * ($base-line-height / $base-font-size);
+
+  @return $line-height + $rhythm-unit;
+}
+
+@function rhythm($units, $offset: 0) {
+  @return ($units * $base-line-height - $offset) / $base-font-size + $rhythm-unit;
+}
+
+@mixin border($side, $lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
+  border-#{$side}: $width $style $color;
+  padding-#{$side}: rhythm($lines, $offset: $width);
+}
+
+@mixin top-border($lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
+  @include border(top, $lines, $width, $style, $color);
+}
+
+@mixin bottom-border($lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
+  @include border(bottom, $lines, $width, $style, $color);
+}
+
+@mixin h-borders($lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
+  @include top-border($lines, $width, $style, $color);
+  @include bottom-border($lines, $width, $style, $color);
+}
+
+@mixin font-size($font-size) {
+  font-size: convert-px-to-rem($font-size);
+  line-height: line-height($font-size);
+}
+
+@mixin debug-vertical-alignment() {
+  background-image: linear-gradient(to top, black 1px, transparent 1px);
+  background-position: left top;
+  background-size: 100% $base-line-height / $base-font-size + $rhythm-unit;
+}
