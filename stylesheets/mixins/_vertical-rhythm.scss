@@ -46,6 +46,10 @@ $rhythm-unit: rem;
   line-height: line-height($font-size);
 }
 
+@mixin adjust-font-size-to($font-size) {
+  @include font-size($font-size);
+}
+
 @mixin debug-vertical-alignment() {
   background-image: linear-gradient(to top, black 1px, transparent 1px);
   background-position: left top;
