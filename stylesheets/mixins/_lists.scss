@@ -1,0 +1,12 @@
+@mixin no-bullet {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+
+@mixin no-bullets {
+  list-style: none;
+  li {
+    @include no-bullet;
+  }
+}
