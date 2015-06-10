@@ -49,6 +49,12 @@ $rhythm-unit: rem;
   @include bottom-border($lines, $width, $style, $color);
 }
 
+@mixin rhythm-borders($lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
+  @include h-borders($lines, $width, $style, $color);
+  border-left: $width $style $color;
+  border-right: $width $style $color;
+}
+
 @mixin font-size($font-size) {
   font-size: convert-px-to-rem($font-size);
   line-height: line-height($font-size);
