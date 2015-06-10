@@ -20,7 +20,7 @@ $rhythm-unit: rem;
 }
 
 @function rhythm($units, $offset: 0) {
-  @return @{($units * $base-line-height - $offset) / $base-font-size + $rhythm-unit};
+  @return #{($units * $base-line-height - $offset) / $base-font-size + $rhythm-unit};
 }
 
 @mixin border($side, $lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
