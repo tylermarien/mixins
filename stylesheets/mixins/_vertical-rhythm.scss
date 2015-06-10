@@ -32,8 +32,16 @@ $rhythm-unit: rem;
   @include border(top, $lines, $width, $style, $color);
 }
 
+@mixin leading-border($lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
+  @include top-border($lines, $width, $style, $color);
+}
+
 @mixin bottom-border($lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
   @include border(bottom, $lines, $width, $style, $color);
+}
+
+@mixin trailing-border($lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
+  @include bottom-border($lines, $width, $style, $color);
 }
 
 @mixin h-borders($lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
