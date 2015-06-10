@@ -5,14 +5,7 @@
     "Tyler Marien <tyler.marien@gmail.com>"
   ],
   "description": "Simple mixins library",
-  "main": "stylesheet/_mixins.scss",
+  "main": "stylesheets/_mixins.scss",
   "license": "MIT",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+  "private": true
 }
