@@ -10,17 +10,17 @@ $min-line-padding: 2px !default;
 $rhythm-unit: rem;
 
 @function convert-px-to-rem($px) {
-  @return $px / $base-font-size + $rhythm-unit;
+  @return #{$px / $base-font-size + $rhythm-unit};
 }
 
 @function line-height($font-size) {
   $line-height: ceil(($font-size + $min-line-padding * 2) / $base-line-height) * ($base-line-height / $base-font-size);
 
-  @return $line-height + $rhythm-unit;
+  @return #{$line-height + $rhythm-unit};
 }
 
 @function rhythm($units, $offset: 0) {
-  @return ($units * $base-line-height - $offset) / $base-font-size + $rhythm-unit;
+  @return @{($units * $base-line-height - $offset) / $base-font-size + $rhythm-unit};
 }
 
 @mixin border($side, $lines: 1, $width: $default-border-width, $style: $default-border-style, $color: $default-border-color) {
